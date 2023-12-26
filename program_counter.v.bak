@@ -1,0 +1,19 @@
+module PC(
+	input wire clock,
+	input wire sel, //selects whether add 4 (1 because word address) or to read the new value
+	input wire [31:0] address,
+	output reg [31:0] instr_addr
+	);
+	
+	initial begin
+		instr_addr = 0;
+	end
+	
+	
+	always @(posedge clock) begin
+		if (sel == 0) begin
+			instr_addr = instr_addr + 1;
+		end
+	end
+	
+endmodule

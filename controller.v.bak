@@ -1,0 +1,46 @@
+module controller(
+	input wire reset,
+	input wire [1:0] stall,
+	input wire typeWB,
+	input wire typeMEM,
+	output reg stall_PC,
+	output reg stall_P1,
+	output reg stall_P2,
+	output reg stall_P3,
+	output reg stall_P4,
+	output reg regEN,
+	output reg memEN,
+	output reg flushP1,
+	output reg flushP2,
+	output reg flushP3,
+	output reg flushP4 
+	
+	// controlls regiter file write mem write
+	// flushes pipeline registers
+	// pause clock for everything that needs to be stalled
+	
+);	
+	always @* begin
+		if (reset == 0) begin//reset everything
+			flushP1 = 0;
+			flushP2 = 0;
+			flushP3 = 0;
+			flushP4 = 0;
+		end
+		if (typeWB == R_TYPE) begin //if WB is needed enable
+			regEN = 1;
+		end
+		if (stall == 2'h1) begin
+
+		end else if (stall == 2'h2) begin
+
+		end else begin
+			stall_P1 <= 0;
+			stall_P2 <= 0;
+			stall_P3 <= 0;
+			stall_P4 <= 0;
+		end
+	end
+	
+	
+endmodule

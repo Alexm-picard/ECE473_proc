@@ -1,0 +1,10 @@
+module ALU(
+	input wire [31:0] D1,
+	input wire [31:0] D2,
+	output wire [31:0] out
+);
+
+	out = D1 + D2;
+
+
+endmodule

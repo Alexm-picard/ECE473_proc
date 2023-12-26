@@ -1,0 +1,17 @@
+module data_hazard(
+	input wire [4:0] P1_IFID_rs1,
+	input wire [4:0] P1_IFID_rs2,
+	input wire [4:0] P2_IDEX_rd,
+	input wire [4:0] P3_EXMEM_rd,
+	output reg [1:0] stall);
+	always @* begin
+		if ((P1_IFID_rs1 == P2_IDEX_rd) || (P1_IFID_rs2 == P2_IDEX_rd)) begin//hazard is in pipeline 2
+			stall <= 2'h1
+		end else if ((P1_IFID_rs1 == P3_EXMEM_rd) || (P1_IFID_rs2 == P3_EXMEM_rd)) begin//hazard is in pipeline 3
+			stall <= 2'h2
+		end else begin
+			stall <= 0
+		end
+
+	end
+endmodule

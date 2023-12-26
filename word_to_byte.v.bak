@@ -1,0 +1,10 @@
+module word_to_byte(
+	input wire [5:0] word,
+	output reg [5:0] byte
+	);
+	
+	always @* begin
+		byte <= word >> 2;
+	end
+	
+endmodule

@@ -1,0 +1,8 @@
+module decode(
+	input wire [31:0] instr,
+	output reg [31:0] instr_decoded
+);
+
+
+
+endmodule

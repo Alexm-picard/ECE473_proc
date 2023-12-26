@@ -1,0 +1,2 @@
+`define INST_ADD 32'h33
+`define INST_ADD_MASK 32'hfe00707f

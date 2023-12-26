@@ -1,0 +1,15 @@
+module clk_div_loser(
+	input wire clk,
+	output reg clk_out
+);
+
+	reg [13:0] temp;
+
+	always @(posedge clk) begin
+		temp <= temp + 1;
+		if (temp == 0) begin
+			clk_out <= ~clk_out;
+		end
+	end
+
+endmodule
